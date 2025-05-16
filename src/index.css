@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Share+Tech+Mono&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 45 100% 51%;
+    --primary-foreground: 0 0% 10%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 45 100% 51%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 45 100% 51%;
+
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-cyber-dark text-foreground font-mono overflow-x-hidden;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .cyber-link {
+    @apply text-cyber-yellow relative inline-block hover:text-cyber-yellow transition-colors duration-200;
+    text-decoration: none;
+  }
+  
+  .cyber-link::after {
+    @apply content-[''] absolute w-full scale-x-0 h-0.5 bottom-0 left-0 bg-cyber-yellow origin-bottom-right transition-transform duration-300;
+  }
+  
+  .cyber-link:hover::after {
+    @apply scale-x-100 origin-bottom-left;
+  }
+  
+  .tag-button {
+    @apply px-2 py-1 bg-cyber-dark-accent text-cyber-yellow border border-cyber-yellow/30 
+           hover:border-cyber-yellow transition-all duration-200 rounded-sm text-xs;
+  }
+
+  .cyber-gradient {
+    @apply bg-gradient-to-br from-cyber-blue via-cyber-pink to-cyber-yellow bg-clip-text text-transparent;
+  }
+
+  .backdropped {
+    @apply backdrop-blur-sm bg-cyber-dark/60 border border-gray-700/40;
+  }
+  
+  /* Social Media Icon Styles */
+  .social-icon-link {
+    @apply flex items-center justify-center h-10 w-10 rounded-full bg-cyber-dark-accent 
+           hover:bg-cyber-dark border border-gray-700/40 hover:border-cyber-yellow 
+           text-gray-400 hover:text-cyber-yellow transition-all duration-200;
+  }
+  
+  .social-icon-link .icon-text {
+    @apply text-sm font-bold;
+  }
+  
+  /* Code Block Styles */
+  .code-block-wrapper {
+    @apply relative rounded-lg overflow-hidden my-6;
+    font-family: 'Fira Mono', monospace;
+  }
+  
+  .code-block-wrapper pre {
+    @apply rounded-lg overflow-x-auto;
+    font-family: 'Fira Mono', monospace !important;
+  }
+  
+  .code-block-wrapper code {
+    @apply p-0;
+    font-family: 'Fira Mono', monospace !important;
+  }
+  
+  /* Line number styling */
+  .code-block-wrapper span.linenumber {
+    @apply text-gray-500 mr-4;
+  }
+  
+  /* Custom scrollbar for code blocks */
+  .code-block-wrapper::-webkit-scrollbar {
+    @apply h-2 w-2;
+  }
+  
+  .code-block-wrapper::-webkit-scrollbar-track {
+    @apply bg-[#1A1F2C] rounded-full;
+  }
+  
+  .code-block-wrapper::-webkit-scrollbar-thumb {
+    @apply bg-gray-500 rounded-full;
+  }
+  
+  .code-block-wrapper::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400;
+  }
+  
+  /* Blog post image styles */
+  .blog-post-image {
+    @apply my-6 rounded-lg overflow-hidden shadow-md w-full max-w-3xl mx-auto;
+  }
+  
+  .blog-post-image img {
+    @apply w-full h-auto object-cover;
+  }
+  
+  .blog-post-image figcaption {
+    @apply text-sm text-center text-gray-400 py-2 bg-cyber-dark-accent;
+  }
+  
+  /* Year header with calendar icon */
+  .year-header {
+    @apply flex items-center gap-2 text-cyber-yellow text-2xl font-heading mb-4 mt-8;
+  }
+  
+  .year-header i {
+    @apply text-[#ea384c];
+  }
+
+  /* Markdown content styles */
+  .markdown-content {
+    @apply text-gray-300;
+  }
+
+  .markdown-content code:not(.code-block-wrapper code) {
+    @apply px-1 py-0.5 bg-cyber-dark-accent rounded text-cyber-yellow font-mono text-sm;
+  }
+
+  .markdown-content table {
+    @apply border-collapse;
+  }
+
+  .markdown-content table th,
+  .markdown-content table td {
+    @apply border border-gray-700 px-3 py-1;
+  }
+
+  .markdown-content blockquote {
+    @apply italic border-l-4 border-cyber-yellow pl-4 py-1 my-4;
+  }
+
+  .markdown-content hr {
+    @apply my-6 border-gray-700;
+  }
+
+  .markdown-content kbd {
+    @apply px-2 py-1 text-xs font-semibold bg-cyber-dark-accent border border-gray-700 rounded-md shadow;
+  }
+  
+  .markdown-content mark {
+    @apply bg-cyber-yellow/20 px-1 text-cyber-yellow;
+  }
+  
+  .markdown-content sup,
+  .markdown-content sub {
+    @apply text-xs;
+  }
+  
+  /* Fix scrollbar styling on ScrollArea in the markdown */
+  .markdown-content::-webkit-scrollbar {
+    @apply h-2 w-2;
+  }
+  
+  .markdown-content::-webkit-scrollbar-track {
+    @apply bg-[#1A1F2C] rounded-full;
+  }
+  
+  .markdown-content::-webkit-scrollbar-thumb {
+    @apply bg-gray-500 rounded-full;
+  }
+  
+  .markdown-content::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400;
+  }
+}
