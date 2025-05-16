@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { getPostBySlug } from '../data/posts';
 import CodeBlock from '../components/CodeBlock';
@@ -12,6 +12,7 @@ const PostPage = () => {
   const navigate = useNavigate();
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
+  const firstH1Ref = useRef(true);
 
   useEffect(() => {
     if (slug) {
@@ -24,6 +25,11 @@ const PostPage = () => {
     }
     setLoading(false);
   }, [slug, navigate]);
+
+  useEffect(() => {
+    // Reset the ref when post changes
+    firstH1Ref.current = true;
+  }, [post]);
 
   if (loading) {
     return (
@@ -86,7 +92,13 @@ const PostPage = () => {
                 );
               },
               // Customize heading styles to match our design
-              h1: ({ children }) => <h1 className="text-3xl text-cyber-yellow mt-8 mb-4">{children}</h1>,
+              h1: ({ children }) => {
+                if (firstH1Ref.current) {
+                  firstH1Ref.current = false;
+                  return null;
+                }
+                return <h1 className="text-3xl text-cyber-yellow mt-8 mb-4">{children}</h1>;
+              },
               h2: ({ children }) => <h2 className="text-2xl text-cyber-yellow mt-8 mb-4">{children}</h2>,
               h3: ({ children }) => <h3 className="text-xl text-cyber-yellow mt-6 mb-3">{children}</h3>,
               h4: ({ children }) => <h4 className="text-lg text-cyber-yellow mt-5 mb-2">{children}</h4>,
