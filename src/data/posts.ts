@@ -567,11 +567,7 @@ export const posts: Post[] = [
   
   ## Final Thoughts
   
-  Simulating ransomware in a lab is eye-opening. You see firsthand how fast files get encrypted and how vital detection and backup strategies are. If you’re serious about cybersecurity, set up your own lab and test your defenses-before a real attack happens.
-  
-  *Image: Screenshot of Sysmon logs and ransomware simulator in action (alt: "Sysmon event log showing ransomware simulation activity")*
-  
-  Questions or want to share your own lab setup? Drop a comment or DM me.
+  Simulating ransomware in a lab is eye-opening. You see firsthand how fast files get encrypted and how vital detection and backup strategies are. If you’re serious about cybersecurity, set up your own lab and test your defenses-before a real attack happens. 
   
   Stay safe,  
   HexHawk
