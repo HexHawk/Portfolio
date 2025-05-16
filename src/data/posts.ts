@@ -211,8 +211,6 @@ export const posts: Post[] = [
   
   If you’re still writing bash scripts to set up dev environments, do yourself a favor and try Docker Compose. It’s not magic, but it’ll save you hours of yak-shaving. Plus, your teammates will thank you.
     
-  Any Compose horror stories or pro tips? Drop them in the comments. Next up: How I broke my cluster with a single typo (and how to avoid it).
-  
   Stay lazy,
   HexHawk
     `
@@ -335,10 +333,8 @@ export const posts: Post[] = [
   
   ## Final Thoughts
   
-  Bettercap isn’t just for MITM attacks-it’s a killer tool for wireless recon. If you’re still stuck on airmon-ng and airodump, give this a try. It’s not magic, but it’s fast, reliable, and gets the job done.
-  
-  Got your own WiFi recon tricks? Drop them in the comments.
-  
+  Bettercap isn’t just for MITM attacks-it’s a killer tool for wireless recon. If you’re still stuck on airmon-ng and airodump, give this a try. It’s not magic, but it’s fast, reliable, and gets the job done.  
+ 
   Stay curious,
   HexHawk
     `
@@ -770,8 +766,6 @@ I use this for:
 ## Final Thoughts
 
 Automating OSINT isn’t just a time-saver-it helps you spot patterns and weak spots you’d miss manually. SpiderFoot is a great starting point, and scripting with Python lets you build it into bigger workflows.
-
-Have your own OSINT automation tricks? Drop them in the comments or hit me up on Mastodon.
 
 Stay curious,  
 HexHawk
